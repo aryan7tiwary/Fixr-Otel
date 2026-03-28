@@ -1,0 +1,9 @@
+services:
+  otel-collector:
+    ports: !reset []
+  prometheus:
+    ports: !reset []
+  jaeger:
+    ports: !reset []
+  grafana:
+    ports: !reset []

@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Confluent.Kafka" Version="2.13.2" />
+		<PackageReference Include="EFCore.NamingConventions" Version="10.0.1" />
+		<PackageReference Include="Google.Protobuf" Version="3.34.0" />
+		<PackageReference Include="Grpc.Tools" Version="2.68.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.5" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.1" />
+		<PackageReference Include="OpenTelemetry.AutoInstrumentation" Version="1.14.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- GrpcServices is 'none' so that we do not need to depend on the grpc nuget package, and we only need protobuf support. -->
+		<Protobuf Include="src\protos\demo.proto" GrpcServices="none" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="src\protos\" />
+	</ItemGroup>
+
+</Project>
